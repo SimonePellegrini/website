@@ -238,37 +238,30 @@ instead, display a burger menu.
     align-items: center;
   }
 
-  @media (max-width: 768px) {
-  /* Impila foto e contatti e li centra */
-  .header-container, .page-layout {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  /* Imposta la colonna dei contatti a tutto schermo */
-  .contacts-box, .sidebar {
-    width: 100%;
+  /* Regole per i dispositivi mobili (Cellulari e Tablet) */
+@media (max-width: 768px) {
+  .header-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;      /* ⬅️ Li mantiene affiancati! */
+    align-items: center;      /* Li centra verticalmente */
+    gap: 15px;                /* Riduce lo spazio vuoto in mezzo */
   }
 
-  /* Centra il titolo "Contacts" */
-  .contacts-box h3, .sidebar h3 {
-    text-align: center;
-    margin-bottom: 10px;
-    width: 100%;
+  /* Rimpicciolisce la foto sui telefoni per fare spazio al testo */
+  .profile-pic img {
+    width: 120px !important;  /* Dimensione perfetta per smartphone */
+    height: 120px !important;
   }
 
-  /* IL TRUCCO MAGICO: costringe il blocco con le icone 
-     a rimpicciolirsi e lo piazza al centro esatto */
-  .contacts-box > div, .sidebar > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Mantiene le icone incolonnate perfettamente a sinistra... */
-    width: fit-content;      /* ...ma stringe la scatola al testo... */
-    margin: 0 auto;          /* ...e la spinge al centro dello schermo! */
+  /* Rimpicciolisce leggermente il testo dei contatti per non farlo andare a capo male */
+  .contacts-box {
+    font-size: 0.85em; 
+  }
+  
+  .contacts-box h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: left;         /* Mantiene il titolo allineato a sinistra */
   }
 }
   header .blog-name {
