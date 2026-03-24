@@ -10,68 +10,13 @@ body {
   line-height: 1.6;
 }
 
-/* Contenitore principale a due colonne */
-.page-layout {
-  display: flex;
-  gap: 50px;               /* Spazio vuoto tra la colonna sinistra e destra */
-  align-items: flex-start; /* Fa partire entrambe le colonne dall'alto */
-}
-
-/* Colonna di Sinistra (Foto e Contatti) */
-.sidebar {
-  flex: 0 0 250px;         /* Fissa la larghezza della colonna sinistra a 250px */
-  
-  /* TRUCCO PRO: Togli i commenti alle due righe sotto 
-     se vuoi che la foto resti fissa sullo schermo mentre scorri il testo a destra! */
-  /* position: sticky; */
-  /* top: 40px; */
-}
-
-/* Colonna di Destra (Curriculum) */
-.main-content {
-  flex: 1;                 /* Prende tutto lo spazio rimanente a destra */
-}
-
-/* Stile per togliere i pallini brutti dalla lista dei contatti */
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
-
-.sidebar li {
-  margin-bottom: 12px;
-}
-
-.sidebar a {
-  text-decoration: none;   /* Toglie la sottolineatura ai link */
-  color: #333;             /* Colore del testo dei contatti */
-}
-
-.sidebar a:hover {
-  color: #15803d;          /* Diventa verde quando ci passi sopra col mouse! */
-}
-
-/* Per i cellulari: fa tornare tutto a una colonna (foto sopra, testo sotto) */
-@media (max-width: 768px) {
-  .page-layout {
-    flex-direction: column; 
-    gap: 30px;
-  }
-  .sidebar {
-    flex: auto;
-    width: 100%;
-    text-align: center;    /* Centra foto e contatti sui telefoni */
-  }
-}
-
 
 
 /* Centra il contenuto e gli dà una larghezza massima */
 .franklin-content {
-  max-width: 1050px;      /* ⬅️ ECCO IL SEGRETO: Aumenta questo numero! (prova tra 1000 e 1100) */
-  margin: 0 auto;         /* Lo mantiene centrato nello schermo */
-  padding: 40px 20px;
+  max-width: 750px;       /* Larghezza simile a quella dello screenshot */
+  margin: 0 auto;         /* Centra la colonna nello schermo */
+  padding: 40px 20px;     /* Aggiunge un po' di spazio sopra, sotto e ai lati */
 }
 /* Stile specifico per l'immagine DENTRO il contenitore profile-pic */
 .profile-pic {
@@ -109,6 +54,39 @@ h2 {
 
 h1 {
   color: #15803d; /* È un verde scuro e professionale */
+}
+@media (max-width: 768px) {
+  /* Impila foto e contatti e li centra */
+  .header-container, .page-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Imposta la colonna dei contatti a tutto schermo */
+  .contacts-box, .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Centra il titolo "Contacts" */
+  .contacts-box h3, .sidebar h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  /* IL TRUCCO MAGICO: costringe il blocco con le icone 
+     a rimpicciolirsi e lo piazza al centro esatto */
+  .contacts-box > div, .sidebar > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Mantiene le icone incolonnate perfettamente a sinistra... */
+    width: fit-content;      /* ...ma stringe la scatola al testo... */
+    margin: 0 auto;          /* ...e la spinge al centro dello schermo! */
+  }
 }
 
 nav {
@@ -238,32 +216,6 @@ instead, display a burger menu.
     align-items: center;
   }
 
-  /* Regole per i dispositivi mobili (Cellulari e Tablet) */
-@media (max-width: 768px) {
-  .header-container {
-    display: flex;
-    flex-direction: row;      /* ⬅️ Li mantiene affiancati! */
-    align-items: center;      /* Li centra verticalmente */
-    gap: 15px;                /* Riduce lo spazio vuoto in mezzo */
-  }
-
-  /* Rimpicciolisce la foto sui telefoni per fare spazio al testo */
-  .profile-pic img {
-    width: 120px !important;  /* Dimensione perfetta per smartphone */
-    height: 120px !important;
-  }
-
-  /* Rimpicciolisce leggermente il testo dei contatti per non farlo andare a capo male */
-  .contacts-box {
-    font-size: 0.85em; 
-  }
-  
-  .contacts-box h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    text-align: left;         /* Mantiene il titolo allineato a sinistra */
-  }
-}
   header .blog-name {
     display: inline-block;
     width: 70%;

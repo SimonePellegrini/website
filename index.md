@@ -4,8 +4,6 @@
 ![Immagine di profilo](assets/profile.jpg)
 @@
 
-### Contacts 📱
-
 ~~~
 <div style="margin-top: 15px;">
 
