@@ -2,19 +2,17 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
-permissions:
-  contents: write
+      - main # o master, a seconda di come si chiama il tuo branch
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: julia-actions/setup-julia@v2
+      - uses: actions/checkout@v3
+      - uses: julia-actions/setup-julia@v1
         with:
           version: '1.x'
       - run: julia -e 'using Pkg; Pkg.add("Franklin"); using Franklin; optimize()'
-      - uses: peaceiris/actions-gh-pages@v4
+      - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./__site
