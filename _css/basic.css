@@ -194,6 +194,27 @@ header li a:hover {
   }
 }
 
+/* Regole per i dispositivi mobili (Cellulari e Tablet) */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* Mette la foto sopra e i contatti sotto */
+    align-items: center;    /* Centra la foto */
+    gap: 20px;              /* Spazio tra foto e contatti */
+  }
+
+  /* Centra il contenitore dei contatti e il suo titolo */
+  .contacts-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Spinge tutto il blocco al centro dello schermo */
+    width: 100%;
+  }
+
+  .contacts-box h3 {
+    text-align: center;     /* Centra la scritta "Contacts 📱" */
+    margin-bottom: 5px;
+  }
+}
 @media (min-width: 481px) {
   header {
     padding-left: 12.5%;
