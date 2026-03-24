@@ -1,0 +1,312 @@
+/* ==================================================================
+    Header and Nav
+================================================================== */
+
+/* Imposta il layout di base della pagina */
+body {
+  font-family: 'Inter', sans-serif; /* Sostituisci con il font che preferisci */
+  background-color: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* Contenitore principale a due colonne */
+.page-layout {
+  display: flex;
+  gap: 50px;               /* Spazio vuoto tra la colonna sinistra e destra */
+  align-items: flex-start; /* Fa partire entrambe le colonne dall'alto */
+}
+
+/* Colonna di Sinistra (Foto e Contatti) */
+.sidebar {
+  flex: 0 0 250px;         /* Fissa la larghezza della colonna sinistra a 250px */
+  
+  /* TRUCCO PRO: Togli i commenti alle due righe sotto 
+     se vuoi che la foto resti fissa sullo schermo mentre scorri il testo a destra! */
+  /* position: sticky; */
+  /* top: 40px; */
+}
+
+/* Colonna di Destra (Curriculum) */
+.main-content {
+  flex: 1;                 /* Prende tutto lo spazio rimanente a destra */
+}
+
+/* Stile per togliere i pallini brutti dalla lista dei contatti */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.sidebar li {
+  margin-bottom: 12px;
+}
+
+.sidebar a {
+  text-decoration: none;   /* Toglie la sottolineatura ai link */
+  color: #333;             /* Colore del testo dei contatti */
+}
+
+.sidebar a:hover {
+  color: #15803d;          /* Diventa verde quando ci passi sopra col mouse! */
+}
+
+/* Per i cellulari: fa tornare tutto a una colonna (foto sopra, testo sotto) */
+@media (max-width: 768px) {
+  .page-layout {
+    flex-direction: column; 
+    gap: 30px;
+  }
+  .sidebar {
+    flex: auto;
+    width: 100%;
+    text-align: center;    /* Centra foto e contatti sui telefoni */
+  }
+}
+
+
+
+/* Centra il contenuto e gli dà una larghezza massima */
+.franklin-content {
+  max-width: 2050px;      /* ⬅️ ECCO IL SEGRETO: Aumenta questo numero! (prova tra 1000 e 1100) */
+  margin: 0 auto;         /* Lo mantiene centrato nello schermo */
+  padding: 40px 20px;
+}
+/* Stile specifico per l'immagine DENTRO il contenitore profile-pic */
+.profile-pic {
+  flex-shrink: 0; /* Impedisce che l'immagine si rimpicciolisca se il testo è tanto */
+  /* (Rimuovi i margin-top, margin-bottom e justify-content che avevamo messo qui prima) */
+}
+
+.profile-pic img {
+  /* DIMENSIONI: Per farla ovale, imposta larghezza e altezza diverse.
+     Per farla un cerchio perfetto (come lo screenshot), impostale UGUALI. */
+  width: 180px;         /* Prova 180px, una misura simile allo screenshot */
+  height: 180px;        /* Stessa misura della larghezza per averla tonda */
+
+  /* IL TOCCO MAGICO PER LA FORMA */
+  border-radius: 50%;   /* Arrotonda gli angoli del 50%, creando un cerchio/ovale */
+
+  /* GESTIONE FOTO: Molto importante per non deformare il tuo viso */
+  object-fit: cover;    /* Ritaglia l'immagine per riempire il cerchio senza schiacciarla */
+}
+.work {
+  text-align: justify;    /* Questo è il trucco magico: allinea sia il bordo destro che quello sinistro! */
+  line-height: 1.6;       /* Dà un po' di respiro tra una riga e l'altra (molto elegante) */
+  
+  /* Se vuoi anche che il paragrafo sia "indentato" (spostato un po' verso destra) 
+     rispetto al resto del sito, decommenta la riga qui sotto togliendo i tag di commento: */
+  /* margin-left: 20px; */ 
+  color: #333333;         /* Un grigio scuro, spesso più elegante e leggibile del nero puro */
+  margin-top: 10px;       /* Spazio sopra */
+  margin-bottom: 20px;    /* Spazio sotto */
+}
+
+h2 {
+  color: #15803d; /* È un verde scuro e professionale */
+}
+
+h1 {
+  color: #15803d; /* È un verde scuro e professionale */
+}
+
+nav {
+  width: 64%;
+  display: inline-block;
+}
+
+nav ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Crea una riga con immagine e testo */
+.header-container {
+  display: flex;
+  align-items: center; /* Allinea verticalmente immagine e testo al centro */
+  gap: 40px;           /* Crea un bello spazio tra la foto e il testo */
+  margin-bottom: 40px; /* Spazio prima della sezione "About" */
+}
+
+/* Assicurati che il testo non abbia margini strani che sballano l'allineamento */
+.header-text h1 {
+  margin-top: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav li a {
+  color: #004de6;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  float: center;
+  padding-top: 10px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 5px;
+  margin-left: 7px;
+  margin-right: 7px;
+  border-bottom: 2px solid #4c9cf1;
+  transition: color 0.3s ease;
+}
+
+header {
+  text-align: right;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+
+header .blog-name {
+  width: 35%;
+  display: inline-block;
+  text-align: left;
+  font-size: 18px;
+  font-family: "Lucida Console", Monaco, monospace;
+  padding-top: 10px;
+}
+
+header .blog-name a {
+  color: #a6a2a0;
+  text-decoration: none;
+}
+
+header li a:hover {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+#menu-icon {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  header {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+}
+
+@media (min-width: 481px) {
+  header {
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+  }
+}
+
+/* wide display: enforce maximum width of header to match content */
+@media (min-width: 940px) {
+  header {
+    width: 705px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*
+medium display: nav goes under name
+*/
+@media (max-width: 760px) {
+  header { display: block; }
+
+  header .blog-name {
+    display: block;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  nav {
+    width: 100%;
+  }
+}
+
+/*
+narrow display: collapse the header (don't show the menu items)
+instead, display a burger menu.
+*/
+@media (max-width: 500px) {
+  header {
+    height: 35px;
+    display: flex;
+    align-items: center;
+  }
+
+  header .blog-name {
+    display: inline-block;
+    width: 70%;
+  }
+
+  nav {
+    display: inline-block;
+    width: 27%;
+  }
+
+  nav ul,
+  nav:active ul {
+    display: none;
+    position: absolute;
+
+    /* padding: 20px; */
+    background: #fff;
+    border: 1px solid #444;
+    right: 50px;
+    top: 60px;
+    width: 30%;
+    border-radius: 4px 0 4px 4px;
+    z-index: 1;
+  }
+
+  nav li {
+    text-align: left;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  header li a { border-bottom: none; }
+  header li a:hover { border-bottom: none; }
+
+  nav:hover ul {
+    display: block;
+  }
+
+  #menu-icon {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+table {
+  line-height: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+tr:first-of-type {
+  background: #eae9f4;
+}
+
+tr:first-of-type > th {
+  text-align: center;
+}
+
+tr,
+th,
+td {
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+
+table tbody tr td {
+  border: 1px solid lightgray;
+}
